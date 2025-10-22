@@ -40,3 +40,52 @@ def print_sequence(num):
         
 num = user_input()
 print_sequence(num)
+
+
+
+
+
+#if you wanted it to print in list format this is how
+#this will make a list containg the fibonacci values
+def user_input():
+    while True:
+        try:
+            user_input = input("Please enter a value:\n")
+            user_input_int = int(user_input) 
+            if (user_input_int > 0):
+                print("Calculating Fibonacci Sequence")
+                return user_input_int
+                break
+            else:
+                print("Invalid number, try agian")
+
+        except ValueError:
+            print("Invalid input.")
+        
+def calc_sequence(num):
+    Fibonacci_list = [0,1]
+    a, b = 0, 1
+    #print(a)
+    #print(b)
+    for _ in range(2, num):  # Start from the 3rd term
+        next_term = a + b
+        #print(next_term)
+        a = b
+        b = next_term
+        Fibonacci_list.append(next_term)
+    return Fibonacci_list
+        
+def print_sequence(num):
+    Fibonacci_list = [0,1]
+    a, b = 0,1
+    if (num == 1):
+        Fibonacci_list.remove(1)
+        print(Fibonacci_list)
+    elif (num == 2):
+        print(Fibonacci_list)
+    else:
+        print(calc_sequence(num))
+        
+num = user_input()
+print_sequence(num)
+        
